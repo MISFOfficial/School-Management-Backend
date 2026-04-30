@@ -1,0 +1,19 @@
+import mongoose from "mongoose";
+import app from "./app";
+const port = 5000
+
+
+async function run() {
+    // 3. Connect to MongoDB
+   try{
+     await mongoose.connect('mongodb://127.0.0.1:27017/test');
+    console.log('Connected to MongoDB Successfully');
+
+    app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+    })
+   }catch (err){
+    console.log(err)
+   }
+
+}
